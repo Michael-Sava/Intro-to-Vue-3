@@ -1,9 +1,16 @@
 const app = Vue.createApp({
     data() {
         return {
-            cart: 0,
+            cart: [],
             premium: true
         }
     },
-    methods: {}
+    methods: {
+        updateCart(id) {    //updateCart method thats triggered ProductDisplay
+            this.cart.push(id)
+        },
+        removeFromCart(id) {   //removeFromCart method thats triggered ProductDisplay
+            this.cart.pop(id)
+        }
+    }
 })

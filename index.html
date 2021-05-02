@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <title>Vue Mastery</title>
     <!-- Import Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
@@ -12,8 +14,14 @@
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Cart({{ cart }})</div>
-      <product-display :premium="premium"></product-display>
+      <div class="cart">Cart({{ cart.length }})</div>
+
+      <!-- Event listner that triggers the method "updateCart" and "removeFromCart" -->
+      <product-display 
+        :premium="premium" 
+        @add-to-cart="updateCart"  
+        @remove-from-cart="removeFromCart">
+      </product-display>
     </div>
 
     <!-- Import App -->
